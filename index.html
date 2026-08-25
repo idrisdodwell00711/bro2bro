@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bro to Bro — Malagasy streetwear and visual culture.">
+<title>Bro to Bro — After Dark</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;600;700&family=UnifrakturCook:wght@700&display=swap');
+:root{--black:#0b0b0a;--cream:#eee9df;--yellow:#f3b936;--orange:#d96a28;--line:rgba(238,233,223,.18);--paper:#e9e3d8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.mono{font:10px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--yellow);z-index:100}
+.top{height:29px;background:var(--black);color:var(--yellow);display:flex;align-items:center;justify-content:center}.top span{font-size:9px}
+nav{height:72px;background:var(--black);color:var(--cream);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 4vw;border-bottom:1px solid #292725;position:sticky;top:0;z-index:50}nav .links{display:flex;gap:25px;font-size:10px;text-transform:uppercase;font-weight:700}.links a:hover{color:var(--yellow)}.logo{font:700 32px 'UnifrakturCook',serif;line-height:1;color:var(--yellow);white-space:nowrap}.nav-right{justify-self:end;display:flex;gap:17px;font:9px 'DM Mono';color:#c9c2b8}
+/* The opening is deliberately two-tone: black + warm paper. The yellow is an accent, not a background. */
+.hero{display:grid;grid-template-columns:43% 57%;min-height:calc(100vh - 101px);background:var(--black);color:var(--cream)}.hero-copy{padding:clamp(35px,5vw,75px);display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid #2b2926}.hero-title{font:clamp(82px,12vw,180px)/.78 'UnifrakturCook',serif;color:var(--yellow);letter-spacing:-.055em;margin:35px 0 25px}.hero-copy p{max-width:410px;font-size:15px;line-height:1.55;color:#d0c9bf}.hero-copy .small{color:#8f8980}.hero-cta{display:inline-block;margin-top:25px;padding:13px 17px;background:var(--yellow);color:var(--black);font-size:10px;font-weight:700;text-transform:uppercase}.hero-image{min-height:700px;display:flex;background:#111;overflow:hidden}.hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%);}
+.hero-note{position:absolute;left:22px;bottom:22px;background:var(--yellow);color:var(--black);padding:7px 9px;font:9px 'DM Mono'}
+.intro{display:grid;grid-template-columns:1fr 1fr;min-height:240px}.intro .statement{background:var(--yellow);padding:35px 5vw;display:flex;align-items:end}.statement h2{font-size:clamp(35px,4.5vw,68px);line-height:.9;letter-spacing:-.06em;margin:0}.intro .copy{background:var(--black);color:var(--cream);padding:35px 5vw;display:flex;align-items:end}.copy p{max-width:540px;margin:0;font-size:16px;line-height:1.5}
+section{padding:80px 5vw}.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}.heading h2{font-size:clamp(48px,7vw,94px);line-height:.8;letter-spacing:-.075em;margin:0}.heading .mono{color:#6e665e}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.product{border-top:1px solid #8d857a;padding-top:10px}.product-image{background:#d2ccc1;overflow:hidden}.product-image img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}.product:nth-child(1) .product-image img{aspect-ratio:1/1;object-fit:cover}.product:nth-child(2) .product-image img{aspect-ratio:1066/1072;object-fit:cover}.product:nth-child(3) .product-image img{aspect-ratio:1440/1080;object-fit:cover}.product-info{display:flex;justify-content:space-between;padding:12px 0 35px;font-size:10px;font-weight:700}.price{font:10px 'DM Mono'}
+.campaign{display:grid;grid-template-columns:1.25fr .75fr;background:var(--black);color:var(--cream);padding:0}.campaign-image{min-height:720px;overflow:hidden}.campaign-image img{width:100%;height:100%;object-fit:cover;object-position:center}.campaign-copy{padding:60px 5vw;display:flex;flex-direction:column;justify-content:space-between}.campaign-copy h2{font:clamp(55px,7vw,105px)/.8 'UnifrakturCook';color:var(--yellow);margin:0}.campaign-copy p{max-width:460px;font-size:18px;line-height:1.45}.campaign-copy .quote{border-left:2px solid var(--yellow);padding-left:17px;color:#bcb5ab;font-size:13px}
+.lookbook{background:var(--paper)}.look-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}.look-grid figure{margin:0}.look-grid figure:nth-child(2){margin-top:120px}.look-grid img{width:100%;height:auto}.caption{display:flex;justify-content:space-between;padding:9px 0 28px;font:9px 'DM Mono';text-transform:uppercase}
+.poster{background:var(--orange);padding:0}.poster img{width:100%;height:auto;max-height:900px;object-fit:cover;object-position:center}.poster-caption{padding:30px 5vw;background:var(--orange);display:flex;justify-content:space-between;gap:25px}.poster-caption h2{margin:0;font-size:clamp(40px,6vw,80px);line-height:.85;letter-spacing:-.06em}.poster-caption p{max-width:390px;font-size:13px;line-height:1.5}
+footer{background:var(--black);color:var(--cream);padding:60px 5vw 25px}.footer-brand{font:clamp(65px,13vw,180px) 'UnifrakturCook';color:var(--yellow);line-height:.75}.footer-row{display:flex;justify-content:space-between;gap:40px;margin-top:70px;padding-top:18px;border-top:1px solid #34302b}.footer-links{display:flex;gap:22px;font:9px 'DM Mono';text-transform:uppercase}.footer-links a:hover{color:var(--yellow)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:800px){nav{grid-template-columns:1fr auto;padding:0 18px}.links{display:none!important}.nav-right{display:none}.hero{grid-template-columns:1fr}.hero-copy{min-height:70vh;border-right:0;border-bottom:1px solid #2b2926}.hero-image{min-height:65vh}.intro{grid-template-columns:1fr}.shop-grid{grid-template-columns:1fr 1fr}.campaign{grid-template-columns:1fr}.campaign-image{min-height:auto}.look-grid{grid-template-columns:1fr}.look-grid figure:nth-child(2){margin-top:0}.poster-caption{display:block}.footer-row{display:block}.footer-links{margin-top:25px;flex-wrap:wrap}}
+@media(max-width:520px){.shop-grid{grid-template-columns:1fr}.hero-title{font-size:24vw}.hero-image{min-height:55vh}section{padding:60px 18px}.intro .statement,.intro .copy{padding:30px 18px}.campaign-copy{padding:45px 18px}.top span{font-size:8px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<div class="top"><span>DROP 01 · AFTER DARK · ANTANANARIVO / WORLDWIDE</span></div>
+<nav>
+  <div class="links"><a href="#shop">Shop</a><a href="#story">Story</a><a href="#lookbook">Lookbook</a></div>
+  <a class="logo" href="#">Bro to Bro</a>
+  <div class="nav-right"><span>INSTAGRAM</span><span>BAG 00</span></div>
+</nav>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div class="mono small">01 / Bro to Bro — Malagasy streetwear</div>
+    <div>
+      <h1 class="hero-title">Bro to<br>Bro</h1>
+      <p>For the ones who keep moving. A Malagasy label built around friendship, individuality and the confidence to stand apart.</p>
+      <a class="hero-cta" href="#shop">View the collection →</a>
+    </div>
+    <div class="mono small">Edition 001 / Limited release</div>
+  </div>
+  <div class="hero-image"><img src="imgs/647260206_17858748183664163_7416657311530321277_n.jpeg" alt="Bro to Bro black garment campaign image"></div>
+</header>
+
+<div class="intro" id="story">
+  <div class="statement reveal"><h2>Stand apart.<br>Move together.</h2></div>
+  <div class="copy reveal"><p>Bro to Bro is not trying to dress everybody. It is about finding your people, knowing your direction and wearing something that feels like yours.</p></div>
+</div>
+
+<section id="shop">
+  <div class="heading reveal"><h2>The Drop</h2><span class="mono">03 / Selected pieces</span></div>
+  <div class="shop-grid">
+    <article class="product reveal"><div class="product-image"><img src="imgs/652503640_17862225510664163_6381923718292044522_n.jpeg" alt="Bro to Bro campaign with yellow logo"></div><div class="product-info"><span>B2B / CORE</span><span class="price">01</span></div></article>
+    <article class="product reveal"><div class="product-image"><img src="imgs/710265523_2786495635042547_1632921541117809956_n.jpg" alt="Bro to Bro streetwear campaign"></div><div class="product-info"><span>B2B / OUTER</span><span class="price">02</span></div></article>
+    <article class="product reveal"><div class="product-image"><img src="imgs/731068163_17884990995664163_1887475012828780383_n.jpeg" alt="Bro to Bro garment detail"></div><div class="product-info"><span>B2B / DETAIL</span><span class="price">03</span></div></article>
+  </div>
+</section>
+
+<section class="campaign">
+  <div class="campaign-image"><img src="imgs/652503640_17862225510664163_6381923718292044522_n.jpeg" alt="Crowd campaign image with Bro to Bro message"></div>
+  <div class="campaign-copy">
+    <div><span class="mono">Campaign 001</span><h2>Don't<br>blend in.</h2></div>
+    <p>There is something powerful about being one person in a crowd and still knowing exactly where you are going.</p>
+    <p class="quote">“Tu ne t'es pas trompé de chemin... Continue d'avancer.”</p>
+  </div>
+</section>
+
+<section id="lookbook" class="lookbook">
+  <div class="heading reveal"><h2>Lookbook</h2><span class="mono">Friends / city / outside</span></div>
+  <div class="look-grid">
+    <figure class="reveal"><img src="imgs/710265523_2786495635042547_1632921541117809956_n.jpg" alt="Two people wearing streetwear"><figcaption class="caption"><span>01 / Together</span><span>Last light</span></figcaption></figure>
+    <figure class="reveal"><img src="imgs/786743649_1630806058613995_8306877443849430904_n.jpeg" alt="Bro to Bro event poster"><figcaption class="caption"><span>02 / After dark</span><span>Geoscar × Bro to Bro</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="poster reveal"><img src="imgs/786743649_1630806058613995_8306877443849430904_n.jpeg" alt="Bro to Bro event poster"><div class="poster-caption"><h2>Culture is part<br>of the clothes.</h2><p>Bro to Bro lives between clothing, music, friends and the places people meet. The brand should feel like that world — not a catalogue separated from it.</p></div></section>
+
+<footer>
+  <div class="footer-brand">Bro to Bro</div>
+  <div class="footer-row"><span class="mono">Made in Madagascar · 2026</span><div class="footer-links"><a href="#shop">Shop</a><a href="#story">Story</a><a href="#lookbook">Lookbook</a><a href="#">Instagram</a></div></div>
+</footer>
+<script>
+const bar=document.querySelector('.progress');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h?scrollY/h*100:0)+'%';},{passive:true});
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
